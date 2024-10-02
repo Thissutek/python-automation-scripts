@@ -37,8 +37,6 @@ To use the file organizer script
 
 1. Open your terminal or command prompt
 
-2. Change the variable target_folder to the specified folder default is the downloads folder
-
-3. Run the script by executing (default path is Downloads folder unless specified)
+2. Run the script by executing (default path is Downloads folder unless specified)
 py file_organizer.py [file_path]
 
