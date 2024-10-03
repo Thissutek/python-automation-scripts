@@ -14,8 +14,13 @@ def organize_files(target_folder):
     # move files to target folder
     for item in os.listdir(target_folder):
         if os.path.isfile(os.path.join(target_folder, item)):
-            file_extension = item.split('.')[-1]
-            shutil.move(os.path.join(target_folder, item), os.path.join(target_folder, file_extension, item ))
+            try:
+                file_extension = item.split('.')[-1]
+                shutil.move(os.path.join(target_folder, item), os.path.join(target_folder, file_extension, item ))
+            except PermissionError as e:
+                print(f"PermissionError: {item} is being used by another process, skipping.")
+            except FileNotFoundError as e: 
+                print(f"FileNotFoundError: Could not find the file or path {item}, skipping.")
 
 def main(): 
     #Sets up the command line parsing change parameter in expanduser for default location
